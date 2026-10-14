@@ -22,6 +22,7 @@ body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px
 button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
 button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .wrap{display:flex;justify-content:center;min-height:100%;padding-inline:0}
+@media (max-width:639px){html,body{height:100%;overflow:hidden}.wrap{height:100%;height:100dvh}.app{height:100%;height:100dvh;min-height:0}.scroll{min-height:0}}
 .app{width:100%;max-width:440px;min-height:100%;background:var(--bg);position:relative;display:flex;flex-direction:column}
 @media (min-width:640px){.wrap{padding-block:24px}.app{min-height:860px;height:860px;border-radius:28px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.25);border:1px solid var(--line)}}
 .demo{background:var(--fg);color:var(--bg);font-size:11px;text-align:center;padding:5px 16px;letter-spacing:.04em}
