@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ЭДМИ — фуд-корт в Краснодаре</title>
+<meta name="description" content="Фуд-корт ЭДМИ в Краснодаре: 12 кухонь мира, один заказ и один чек. Доставка и самовывоз без комиссии.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Manrope:wght@500;600;700;800&display=swap">
+<style>
+/* Layout: dark-wine editorial hero with live video, then warm cream sections; one CTA everywhere → the ordering mini-app */
+:root{
+  --wine:#2a0b0f; --wine2:#4a121a; --red:#c4232f; --gold:#f0a530;
+  --cream:#f6f0e8; --paper:#fffaf4; --ink:#1d1612; --muted:#776a60; --line:#e8ddd1;
+  --display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1160px;margin:0 auto;padding-inline:20px}
+.demo{background:var(--ink);color:#f6f0e8;font-size:12px;text-align:center;padding:6px 16px;letter-spacing:.03em}
+/* header */
+header{position:sticky;top:0;z-index:20;background:rgba(42,11,15,.92);backdrop-filter:blur(10px);color:#fff}
+header .wrap{display:flex;align-items:center;gap:20px;height:64px}
+.logo{font-family:var(--display);font-weight:800;font-size:24px;letter-spacing:-.02em;text-decoration:none}
+.logo span{color:var(--red)}
+nav{display:flex;gap:22px;margin-left:auto;font-weight:600;font-size:15px}
+nav a{text-decoration:none;opacity:.85}nav a:hover{opacity:1}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--red);color:#fff;text-decoration:none;font-weight:800;border-radius:999px;padding:13px 22px;font-size:15px;border:0;cursor:pointer;font-family:var(--body);white-space:nowrap}
+.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:rgba(255,255,255,.12);color:#fff}
+.btn.dark{background:var(--ink)}
+@media (max-width:760px){nav{display:none}header .btn{margin-left:auto;padding:10px 16px}}
+/* hero */
+.hero{position:relative;background:var(--wine);color:#fff;overflow:hidden}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s}
+.hero video.on{opacity:1}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(42,11,15,.95) 0%,rgba(42,11,15,.75) 38%,rgba(42,11,15,.1) 75%),linear-gradient(0deg,rgba(42,11,15,.8),transparent 40%)}
+.hero .wrap{position:relative;z-index:1;padding-block:110px 90px;min-height:600px;display:flex;flex-direction:column;justify-content:center}
+.eyebrow{font-weight:800;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.hero h1{font-family:var(--display);font-weight:800;font-size:clamp(38px,6.4vw,76px);line-height:1;margin:16px 0 18px;max-width:12ch;text-wrap:balance;letter-spacing:-.02em}
+.hero p{font-size:clamp(17px,2vw,20px);max-width:34ch;opacity:.9;margin:0 0 30px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.rating{display:inline-flex;align-items:center;gap:10px;margin-top:34px;font-size:14px;opacity:.9}
+.rating b{font-family:var(--display);font-size:22px;color:var(--gold)}
+@media (max-width:760px){.hero .wrap{padding-block:70px 60px;min-height:560px}.hero:after{background:linear-gradient(0deg,rgba(42,11,15,.97) 25%,rgba(42,11,15,.55) 65%,rgba(42,11,15,.25))}.hero .wrap{justify-content:flex-end}}
+/* facts strip */
+.facts{background:var(--paper);border-bottom:1px solid var(--line)}
+.facts .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:1px}
+.fact{padding:22px 10px}
+.fact b{display:block;font-family:var(--display);font-size:20px;font-variant-numeric:tabular-nums}
+.fact small{color:var(--muted);font-size:14px}
+@media (max-width:760px){.facts .wrap{grid-template-columns:1fr 1fr}}
+section{padding-block:80px}
+.sh{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:30px;flex-wrap:wrap}
+h2{font-family:var(--display);font-weight:800;font-size:clamp(28px,4vw,44px);line-height:1.05;margin:8px 0 0;letter-spacing:-.02em;text-wrap:balance;max-width:18ch}
+.lead{color:var(--muted);max-width:52ch;margin:10px 0 0}
+/* menu */
+.dishes{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.dish{background:var(--paper);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.dish .ph{aspect-ratio:1/1;background:linear-gradient(135deg,#e9d8c6,#d9b99a)}
+.dish .ph img{width:100%;height:100%;object-fit:cover}
+.dish .in{padding:14px 16px 16px;display:flex;flex-direction:column;gap:2px;flex:1}
+.dish .k{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--red)}
+.dish b{font-size:16px;line-height:1.25}
+.dish .row{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:10px}
+.dish .p{font-weight:800;font-size:18px;font-variant-numeric:tabular-nums}
+.dish a{font-size:13px;font-weight:800;color:var(--red);text-decoration:none}
+@media (max-width:900px){.dishes{grid-template-columns:repeat(2,1fr)}}
+/* why */
+.why{background:var(--wine);color:#fff}
+.why .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:10px}
+.why .it{border-top:2px solid var(--red);padding-top:18px}
+.why .it b{font-family:var(--display);font-size:20px;display:block;margin-bottom:8px}
+.why .it p{margin:0;opacity:.82}
+.why h2{color:#fff}.why .lead{color:rgba(255,255,255,.7)}
+@media (max-width:760px){.why .grid{grid-template-columns:1fr}}
+/* promos */
+.promos{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:16px}
+.promo{border-radius:22px;padding:26px;color:#fff;min-height:220px;display:flex;flex-direction:column;justify-content:space-between}
+.promo h3{font-family:var(--display);font-size:24px;line-height:1.1;margin:0 0 8px}
+.promo p{margin:0;opacity:.9}
+.code{align-self:flex-start;margin-top:18px;border:1px dashed rgba(255,255,255,.6);background:rgba(255,255,255,.15);border-radius:10px;padding:6px 12px;font-weight:800;letter-spacing:.08em}
+@media (max-width:900px){.promos{grid-template-columns:1fr}}
+/* bonus */
+.bonus{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.card{border-radius:26px;padding:30px;color:#fff;background:linear-gradient(135deg,#2a0b0f,#6b1520 60%,#c4232f);aspect-ratio:1.6/1;max-width:100%;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 30px 60px rgba(42,11,15,.25)}
+.card .bal{font-family:var(--display);font-size:44px}
+.levels{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
+.levels div{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:14px}
+.levels b{display:block}.levels small{color:var(--muted)}
+@media (max-width:860px){.bonus{grid-template-columns:1fr}}
+/* reviews */
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.rv{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:22px}
+.rv .s{color:var(--gold);font-weight:800;letter-spacing:.1em}
+.rv p{margin:10px 0 12px}
+.rv small{color:var(--muted)}
+@media (max-width:860px){.reviews{grid-template-columns:1fr}}
+/* banquet form */
+.banq{background:var(--paper);border-block:1px solid var(--line)}
+.banq .grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+form{display:grid;gap:12px}
+input,select,textarea{font:inherit;padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:#fff;color:var(--ink);width:100%}
+input:focus,select:focus,textarea:focus,.btn:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.ok{background:#e6f4ea;color:#1f6b3a;border-radius:14px;padding:14px 16px;font-weight:700}
+@media (max-width:860px){.banq .grid{grid-template-columns:1fr}}
+/* addresses */
+.addr{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ad{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:26px;display:flex;flex-direction:column;gap:6px}
+.ad b{font-family:var(--display);font-size:22px}
+.ad small{color:var(--muted)}
+.ad .links{display:flex;gap:14px;margin-top:10px;font-weight:700;font-size:14px}
+.ad .links a{color:var(--red)}
+@media (max-width:760px){.addr{grid-template-columns:1fr}}
+footer{background:var(--ink);color:#d9cfc6;padding-block:40px;font-size:14px}
+footer .wrap{display:flex;gap:30px;justify-content:space-between;flex-wrap:wrap;align-items:center}
+footer .logo{color:#fff}
+.sticky-cta{position:fixed;left:16px;right:16px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:30;display:none}
+@media (max-width:760px){.sticky-cta{display:flex}.sticky-cta .btn{flex:1;padding:16px;box-shadow:0 12px 30px rgba(196,35,47,.4)}footer{padding-bottom:100px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero video{transition:none}}
+</style>
+</head>
+<body>
+<div class="demo">Демо-версия нового сайта ЭДМИ · меню и цены из 2ГИС, акции и отзывы — пример</div>
+<header><div class="wrap">
+  <a class="logo" href="#top">ЭДМ<span>И</span></a>
+  <nav><a href="#menu">Меню</a><a href="#promo">Акции</a><a href="#bonus">Бонусы</a><a href="#banket">Банкеты</a><a href="#addr">Адреса</a></nav>
+  <a class="btn" href="./">Заказать</a>
+</div></header>
+
+<div class="hero" id="top">
+  <video id="hv" autoplay muted loop playsinline aria-hidden="true"></video>
+  <div class="wrap">
+    <div class="eyebrow">Фуд-корт · Краснодар</div>
+    <h1>12 кухонь мира — один заказ и один чек</h1>
+    <p>Шашлык с открытой кухни, пицца, суши, бургеры и домашние десерты. Доставка и самовывоз без комиссии агрегаторов.</p>
+    <div class="ctas"><a class="btn" href="./">Заказать без комиссии →</a><a class="btn ghost" href="tel:+79180770505">+7 (918) 077-05-05</a></div>
+    <div class="rating"><b>4.8</b><span>★★★★★<br>210 оценок в 2ГИС</span></div>
+  </div>
+</div>
+
+<div class="facts"><div class="wrap">
+  <div class="fact"><b>08:00–00:00</b><small>каждый день</small></div>
+  <div class="fact"><b>11:00–23:30</b><small>доставка</small></div>
+  <div class="fact"><b>2 адреса</b><small>Есаулко и «Вершина»</small></div>
+  <div class="fact"><b>до 7%</b><small>бонусами с заказа</small></div>
+</div></div>
+
+<section id="menu"><div class="wrap">
+  <div class="sh"><div><div class="eyebrow" style="color:var(--red)">Меню</div><h2>Хиты, которые заказывают чаще всего</h2></div><a class="btn dark" href="./">Всё меню и заказ →</a></div>
+  <div class="dishes" id="dishes"></div>
+</div></section>
+
+<section class="why"><div class="wrap">
+  <div class="eyebrow">Почему ЭДМИ</div><h2>Не просто фуд-корт</h2>
+  <p class="lead">То, за что гости ставят нам 4.8 в 2ГИС.</p>
+  <div class="grid">
+    <div class="it"><b>Открытая кухня</b><p>Видно, как жарят шашлык и пекут пиццу. Всё готовится при вас.</p></div>
+    <div class="it"><b>Один чек на всех</b><p>Каждый берёт что хочет: суши, плов, бургер. Платите один раз.</p></div>
+    <div class="it"><b>Домашние десерты</b><p>Свои десерты и мороженое. Особенно любят дети.</p></div>
+  </div>
+</div></section>
+
+<section id="promo"><div class="wrap">
+  <div class="sh"><div><div class="eyebrow" style="color:var(--red)">Акции</div><h2>Выгоднее, чем в агрегаторах</h2></div></div>
+  <div class="promos">
+    <div class="promo" style="background:linear-gradient(135deg,#c4232f,#f08a2a)"><div><h3>−20% на первый заказ</h3><p>При заказе через наше приложение в Telegram, ВК или на сайте.</p></div><span class="code">TGEDMI</span></div>
+    <div class="promo" style="background:linear-gradient(135deg,#2a0b0f,#7a2410)"><div><h3>Горячий вечер</h3><p>Пт–Вс после 18:00 −15% на всё горячее.</p></div><span class="code">HOT15</span></div>
+    <div class="promo" style="background:linear-gradient(135deg,#1f5a5a,#3f8f7c)"><div><h3>Бизнес-ланч</h3><p>До 16:00: суп + горячее = −15% на заказ.</p></div><span class="code">LUNCH</span></div>
+  </div>
+</div></section>
+
+<section id="bonus" style="padding-top:0"><div class="wrap bonus">
+  <div><div class="eyebrow" style="color:var(--red)">Бонусная программа</div><h2>Возвращаем до 7% бонусами</h2>
+    <p class="lead">Копите бонусы с каждого заказа и оплачивайте ими до 30% следующего. Карта всегда в телефоне, показать на кассе можно по QR-коду.</p>
+    <div class="levels"><div><b>Новичок</b><small>3% бонусами</small></div><div><b>Свой</b><small>5% бонусами</small></div><div><b>Гурман</b><small>7% + подарки</small></div></div>
+  </div>
+  <div class="card"><div style="display:flex;justify-content:space-between"><b>ЭДМИ</b><span>уровень «Свой»</span></div><div><small>Баланс</small><div class="bal">740</div></div><div>Гость ЭДМИ · •••• 2048</div></div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <div class="sh"><div><div class="eyebrow" style="color:var(--red)">Отзывы</div><h2>Что говорят гости</h2></div></div>
+  <div class="reviews">
+    <div class="rv"><div class="s">★★★★★</div><p>Открытая кухня, видно, как жарят шашлык. Взяли на компанию всё разное — и в одном чеке.</p><small>пример отзыва</small></div>
+    <div class="rv"><div class="s">★★★★★</div><p>Домашние десерты и мороженое отличные, дети в восторге.</p><small>пример отзыва</small></div>
+    <div class="rv"><div class="s">★★★★★</div><p>Удобно, что открыто с 8 утра: хорошие завтраки рядом с домом.</p><small>пример отзыва</small></div>
+  </div>
+</div></section>
+
+<section class="banq" id="banket"><div class="wrap grid">
+  <div><div class="eyebrow" style="color:var(--red)">Банкеты и большие заказы</div><h2>Корпоратив, день рождения, кейтеринг</h2>
+    <p class="lead">Соберём меню из любых кухонь под ваш бюджет и количество гостей. Оставьте заявку — перезвоним в течение 15 минут.</p></div>
+  <form id="bf">
+    <input id="b-name" placeholder="Имя" required autocomplete="name">
+    <input id="b-phone" placeholder="Телефон" required inputmode="tel" autocomplete="tel">
+    <select id="b-type"><option>День рождения</option><option>Корпоратив</option><option>Доставка в офис</option><option>Другое</option></select>
+    <input id="b-guests" placeholder="Сколько гостей" inputmode="numeric">
+    <button class="btn" type="submit">Отправить заявку</button>
+    <div class="ok" id="bok" hidden>Спасибо! Это демо: на рабочем сайте заявка сразу придёт администратору в Telegram.</div>
+  </form>
+</div></section>
+
+<section id="addr"><div class="wrap">
+  <div class="sh"><div><div class="eyebrow" style="color:var(--red)">Адреса</div><h2>Ждём в гости</h2></div></div>
+  <div class="addr">
+    <div class="ad"><b>ул. Дмитрия Есаулко, 11</b><small>Каждый день 08:00–00:00 · рейтинг 4.8 в 2ГИС</small>
+      <div class="links"><a href="https://2gis.ru/krasnodar/firm/70000001095207759" target="_blank" rel="noopener">2ГИС</a><a href="https://yandex.ru/maps/?text=%D0%AD%D0%94%D0%9C%D0%98%20%D0%95%D1%81%D0%B0%D1%83%D0%BB%D0%BA%D0%BE%2011%20%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D0%B4%D0%B0%D1%80" target="_blank" rel="noopener">Яндекс Карты</a></div></div>
+    <div class="ad"><b>ул. Красных Партизан, 208</b><small>ТЦ «Вершина» · рейтинг 4.8 в 2ГИС</small>
+      <div class="links"><a href="https://2gis.ru/krasnodar/firm/70000001112817284" target="_blank" rel="noopener">2ГИС</a><a href="https://yandex.ru/maps/?text=%D0%AD%D0%94%D0%9C%D0%98%20%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D1%85%20%D0%9F%D0%B0%D1%80%D1%82%D0%B8%D0%B7%D0%B0%D0%BD%20208" target="_blank" rel="noopener">Яндекс Карты</a></div></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <a class="logo" href="#top">ЭДМ<span style="color:var(--red)">И</span></a>
+  <div>+7 (918) 077-05-05<br>Краснодар · доставка 11:00–23:30</div>
+  <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="./">Заказать онлайн</a><a class="btn ghost" href="https://vk.com/club228778628" target="_blank" rel="noopener">ВКонтакте</a></div>
+</div></footer>
+<div class="sticky-cta"><a class="btn" href="./">Заказать без комиссии →</a></div>
+
+<script>
+const HITS=[["eng","Завтраки","Английский завтрак с беконом",250],["borsch","Супы","Борщ с мясом",200],["pork","Горячее","Свинина по-французски",450],["golub","Горячее","Голубцы",370],["solyanka","Супы","Солянка",240],["shak","Завтраки","Шакшука",250],["dolma","Горячее","Долма",380],["syr","Завтраки","Сырники",150]];
+const box=document.getElementById("dishes");
+box.innerHTML=HITS.map(h=>`<div class="dish"><div class="ph"><img data-k="${h[0]}" alt="${h[2]}"></div><div class="in"><span class="k">${h[1]}</span><b>${h[2]}</b><div class="row"><span class="p">${h[3]} ₽</span><a href="./">В заказ →</a></div></div></div>`).join("");
+document.getElementById("bf").addEventListener("submit",e=>{e.preventDefault();document.getElementById("bok").hidden=false});
+/* видео и фото берём из опубликованного мини-приложения (тот же сайт) */
+fetch("index.html").then(r=>r.text()).then(t=>{
+  const v=t.match(/<video id="hv" src="(data:video\/mp4;base64,[^"]+)"/);
+  const ps=t.match(/poster="(data:image\/jpeg;base64,[^"]+)"/);
+  if(ps){const el=document.getElementById("hv");el.poster=ps[1];el.classList.add("on")}
+  if(v){const el=document.getElementById("hv");el.src=v[1];el.addEventListener("loadeddata",()=>el.classList.add("on"));el.play&&el.play().catch(()=>{})}
+  const m=t.match(/const IMG=(\{.*?\});/s);
+  if(m){try{const I=JSON.parse(m[1]);document.querySelectorAll("img[data-k]").forEach(i=>{if(I[i.dataset.k])i.src=I[i.dataset.k]})}catch(e){}}
+}).catch(()=>{});
+</script>
+</body>
+</html>
