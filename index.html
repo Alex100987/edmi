@@ -274,6 +274,7 @@ function render(){
  const cb=$("#cartbar");cb.hidden=!(c&&st.tab!=="cart");
  if(c) cb.innerHTML=`<div>Корзина · ${c}<small>один чек на все кухни</small></div><div>${fmt(total())}</div>`;
  $("#sheetbox").innerHTML=sheet();
+ try{sessionStorage.setItem("edmi",JSON.stringify({cart:st.cart,bonus:st.bonus}))}catch(e){}
  if(st.tab==="menu") anim();
 }
 document.addEventListener("click",e=>{const t=e.target.closest("button,.cartbar,.ov");if(!t)return;const d=t.dataset;
@@ -302,6 +303,10 @@ document.addEventListener("change",e=>{if(e.target.id==="useb"){st.useB=e.target
 $("#cartbar").addEventListener("click",()=>{});
 function anim(){const v=$("#hv");if(v){v.muted=true;v.play().catch(()=>{})}}
 const _hv=document.querySelector("#hv"),HVSRC=(_hv&&_hv.getAttribute("src"))||"hero.mp4",HPOS=(_hv&&_hv.getAttribute("poster"))||"poster.jpg";
+const QS=new URLSearchParams(location.search);
+try{const sv=JSON.parse(sessionStorage.getItem("edmi")||"null");if(sv){st.cart=sv.cart||{};if(typeof sv.bonus==="number")st.bonus=sv.bonus}}catch(e){}
+if(QS.get("add")){const m=M.find(x=>x.name===QS.get("add"));if(m){st.cart[m.id]=(st.cart[m.id]||0)+1;setTimeout(()=>toast("Добавлено: "+m.name),300)}}
+if(QS.get("from")==="site"){const x=document.querySelector(".tg .x");if(x)x.outerHTML='<a class="x" href="site.html" style="text-decoration:none">← На сайт</a>';try{history.replaceState(null,"",location.pathname+"?from=site")}catch(e){}}
 render();
 </script>
 </body></html>

@@ -130,7 +130,7 @@ footer .logo{color:#fff}
 <header><div class="wrap">
   <a class="logo" href="#top">ЭДМ<span>И</span></a>
   <nav><a href="#menu">Меню</a><a href="#promo">Акции</a><a href="#bonus">Бонусы</a><a href="#banket">Банкеты</a><a href="#addr">Адреса</a></nav>
-  <a class="btn" href="./">Заказать</a>
+  <a class="btn" href="./?from=site">Заказать</a>
 </div></header>
 
 <div class="hero" id="top">
@@ -139,7 +139,7 @@ footer .logo{color:#fff}
     <div class="eyebrow">Фуд-корт · Краснодар</div>
     <h1>12 кухонь мира — один заказ и один чек</h1>
     <p>Шашлык с открытой кухни, пицца, суши, бургеры и домашние десерты. Доставка и самовывоз без комиссии агрегаторов.</p>
-    <div class="ctas"><a class="btn" href="./">Заказать без комиссии →</a><a class="btn ghost" href="tel:+79180770505">+7 (918) 077-05-05</a></div>
+    <div class="ctas"><a class="btn" href="./?from=site">Заказать без комиссии →</a><a class="btn ghost" href="tel:+79180770505">+7 (918) 077-05-05</a></div>
     <div class="rating"><b>4.8</b><span>★★★★★<br>210 оценок в 2ГИС</span></div>
   </div>
 </div>
@@ -152,7 +152,7 @@ footer .logo{color:#fff}
 </div></div>
 
 <section id="menu"><div class="wrap">
-  <div class="sh"><div><div class="eyebrow" style="color:var(--red)">Меню</div><h2>Хиты, которые заказывают чаще всего</h2></div><a class="btn dark" href="./">Всё меню и заказ →</a></div>
+  <div class="sh"><div><div class="eyebrow" style="color:var(--red)">Меню</div><h2>Хиты, которые заказывают чаще всего</h2></div><a class="btn dark" href="./?from=site">Всё меню и заказ →</a></div>
   <div class="dishes" id="dishes"></div>
 </div></section>
 
@@ -218,14 +218,14 @@ footer .logo{color:#fff}
 <footer><div class="wrap">
   <a class="logo" href="#top">ЭДМ<span style="color:var(--red)">И</span></a>
   <div>+7 (918) 077-05-05<br>Краснодар · доставка 11:00–23:30</div>
-  <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="./">Заказать онлайн</a><a class="btn ghost" href="https://vk.com/club228778628" target="_blank" rel="noopener">ВКонтакте</a></div>
+  <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="./?from=site">Заказать онлайн</a><a class="btn ghost" href="https://vk.com/club228778628" target="_blank" rel="noopener">ВКонтакте</a></div>
 </div></footer>
-<div class="sticky-cta"><a class="btn" href="./">Заказать без комиссии →</a></div>
+<div class="sticky-cta"><a class="btn" href="./?from=site">Заказать без комиссии →</a></div>
 
 <script>
 const HITS=[["eng","Завтраки","Английский завтрак с беконом",250],["borsch","Супы","Борщ с мясом",200],["pork","Горячее","Свинина по-французски",450],["golub","Горячее","Голубцы",370],["solyanka","Супы","Солянка",240],["shak","Завтраки","Шакшука",250],["dolma","Горячее","Долма",380],["syr","Завтраки","Сырники",150]];
 const box=document.getElementById("dishes");
-box.innerHTML=HITS.map(h=>`<div class="dish"><div class="ph"><img data-k="${h[0]}" alt="${h[2]}"></div><div class="in"><span class="k">${h[1]}</span><b>${h[2]}</b><div class="row"><span class="p">${h[3]} ₽</span><a href="./">В заказ →</a></div></div></div>`).join("");
+box.innerHTML=HITS.map(h=>`<div class="dish"><div class="ph"><img data-k="${h[0]}" alt="${h[2]}"></div><div class="in"><span class="k">${h[1]}</span><b>${h[2]}</b><div class="row"><span class="p">${h[3]} ₽</span><a href="./?from=site&add=${encodeURIComponent(h[2])}">В заказ →</a></div></div></div>`).join("");
 document.getElementById("bf").addEventListener("submit",e=>{e.preventDefault();document.getElementById("bok").hidden=false});
 /* видео и фото берём из опубликованного мини-приложения (тот же сайт) */
 fetch("index.html").then(r=>r.text()).then(t=>{
